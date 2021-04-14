@@ -12,3 +12,5 @@ Key Questions and Objectives
 ● Where are customers with a high lifetime value based?
 
 ● Do sales figures vary between geographic regions?
+
+The final presentation is  [here](https://public.tableau.com/profile/kentaro.fujita#!/vizhome/Rockbuster_16140100110730/Story1) on Tableau
