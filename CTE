@@ -1,10 +1,9 @@
 Here is a SQL query wit a common table expression:
 
-SELECT E.country,
-COUNT(country) AS top_customer_count
-FROM (SELECT C.first_name,
-C.last_name,
-SUM(amount)
+WITH amount_paid(first_name,last_name, SUM) AS
+(SELECT C.first_name,
+        C.last_name,
+        SUM(amount)
 FROM payment A
 INNER JOIN rental B ON A.rental_id = B.rental_id
 INNER JOIN customer C ON B.customer_id = C.customer_id
@@ -14,13 +13,6 @@ INNER JOIN country F ON E.country_id = F.country_id
 WHERE city IN ('Aurora','Atlixco','Zalantun','Pontianak','Tarsus','Aparecida de Goinia','Emeishan','Rio Claro','Yingkou','Tokat')
 GROUP BY first_name, last_name
 ORDER BY SUM(amount) DESC
-LIMIT 5) A
-LEFT JOIN customer B ON A.first_name = B.first_name
-LEFT JOIN address C ON B.address_id = C.address_id
-LEFT JOIN city D ON C.city_id = D.city_id
-LEFT JOIN country E ON D.country_id = E.country_id
-GROUP BY country
-ORDER BY COUNT(country) DESC
-
-
-
+LIMIT 5)
+SELECT AVG(SUM)
+FROM amount_paid
