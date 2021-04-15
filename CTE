@@ -1,4 +1,4 @@
-Here is a SQL query wit a common table expression:
+Here is a SQL query wit a common table expression for the average amount paid by the top 5 customers:
 
 WITH amount_paid(first_name,last_name, SUM) AS
 (SELECT C.first_name,
