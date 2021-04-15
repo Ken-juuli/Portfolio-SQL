@@ -1,4 +1,4 @@
-Here is a SQL query with subqueries
+Here is a SQL query with subqueries for finding countries where top 5 coustomers come from:
 
 SELECT E.country,
 COUNT(country) AS top_customer_count
